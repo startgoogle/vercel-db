@@ -4,6 +4,9 @@ import path from 'path';
 const filePath = path.resolve('./data.txt');
 
 export default async function handler(req, res) {
+  // Set content type to plain text for all responses
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  
   if (req.method === 'GET') {
     try {
       const data = fs.readFileSync(filePath, 'utf8');
